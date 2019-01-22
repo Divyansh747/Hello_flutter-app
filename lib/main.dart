@@ -7,13 +7,28 @@ void main() {
     title: "Exploring UI widgets",
     home: Scaffold(
       appBar: AppBar(title: Text("Long List"),),
-     body: getListView()
+     body: getListView(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          debugPrint("Clicked!");
+        },
+        child: Icon(Icons.add),
+        tooltip: 'Add One More Item',
+      ),
     ),
   ));
 }
 
+void showSnackBar(BuildContext context, String item) {
+  var snackBar = SnackBar(
+    content: Text("You Just Tapped $item"),
+  );
+
+  Scaffold.of(context).showSnackBar(snackBar);
+}
+
 List<String> getListElements() {
-  var items = List <String>.generate(1000,(counter) => "Item $counter");
+  var items = List<String>.generate(1000, (counter) => "Item $counter");
   return items;
   }
 
@@ -21,11 +36,12 @@ List<String> getListElements() {
     var listItems = getListElements();
     var listView = ListView.builder(
     itemBuilder: (context, index) {
+
       return ListTile(
         leading: Icon(Icons.arrow_right),
       title: Text(listItems[index]),
         onTap: (){
-          debugPrint('${listItems[index]} was tapped');
+          showSnackBar(context, listItems[index]);
         },
       );
   }
