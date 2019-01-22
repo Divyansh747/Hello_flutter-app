@@ -8,6 +8,7 @@ class MyFlutterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         title: "My Flutter App", //titleText
         home: Scaffold(
         appBar: AppBar(title: Text("Hello World !"),),
