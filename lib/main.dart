@@ -1,25 +1,21 @@
 import "package:flutter/material.dart";
+import './app_screens/first_screen.dart';
 
+void main() => runApp(new MyFlutterApp());
 
-void main(){
+class MyFlutterApp extends StatelessWidget {
 
-  runApp(
-
-      MaterialApp(
-      title: "My Flutter App", //titleText
-      home: Scaffold(
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+        title: "My Flutter App", //titleText
+        home: Scaffold(
         appBar: AppBar(title: Text("Hello World !"),),
-        body: Material(
-          color: Colors.lightGreenAccent,
-          child:  Center(
-            child: Text(
-              "HELLO FLUTTER",
-              textDirection: TextDirection.ltr,
-              style: TextStyle(color: Colors.white, fontSize: 42.0),
-            ),//text
-          ),
-        ),
-      ),
+    body: FirstScreen()
+
     )
-  );//runapp
+    );
+  }
+
+
 }
