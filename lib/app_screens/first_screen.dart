@@ -62,7 +62,8 @@ class FirstScreen extends StatelessWidget {
                         )),
                   ],
                 ),
-                PcImageAsset()
+                PcImageAsset(),
+                FruitBookButton()
               ],
             )));
   }
@@ -76,4 +77,48 @@ class PcImageAsset extends StatelessWidget {
     Image image = Image(image: assetImage, width: 250.0, height: 250.0,);
     return Container(child: image,);
   }
+}
+
+class FruitBookButton extends StatelessWidget{
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+      margin: EdgeInsets.only(top:30.0),
+      width: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+        color: Colors.red,
+        child: Text(
+            "Book Your Fruits",
+            style: TextStyle(
+            fontSize: 20.0,
+            color: Colors.white,
+            fontWeight: FontWeight.w700
+        ),
+        ),
+
+        elevation: 6.0,
+        onPressed: (){
+          bookFruit(context);
+        },
+      ),
+    );
+
+  }
+
+  void bookFruit(BuildContext context){
+    var alertDialog = AlertDialog(
+    title: Text("Fruits Booked Successfully"),
+    content: Text("Have a healthy day :)"),
+    );
+
+    showDialog(
+        context:context,
+    builder: (BuildContext context) {
+      return alertDialog;
+    }
+    );
+  }
+
 }
