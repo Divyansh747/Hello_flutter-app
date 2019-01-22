@@ -5,14 +5,23 @@ class FirstScreen extends StatelessWidget{
 @override
 Widget build(BuildContext context) {
  return Material(
-    color: Colors.cyan,
-    child: Center(
-      child: Text(
-        generateLuckyNumber(),
-        textDirection: TextDirection.ltr,
-        style: TextStyle(color: Colors.white, fontSize: 42.0),
-      ),
-  ),
+    //color: Colors.cyan,
+
+     child: Center(
+       child: Container(
+         alignment: Alignment.center,
+         color: Colors.cyan,
+         width: 380,
+         height: 100,
+       child: Text(
+         generateLuckyNumber(),
+         textDirection: TextDirection.ltr,
+         style: TextStyle(color: Colors.white, fontSize: 32.0),
+       ),
+     ),
+
+   )
+
  );
 }
 
