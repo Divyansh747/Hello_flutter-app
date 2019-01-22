@@ -7,19 +7,19 @@ void main(){
 
       MaterialApp(
       title: "My Flutter App", //titleText
-      home: Material(
-        color: Colors.lightGreenAccent,
-        child:  Center(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Hello World !"),),
+        body: Material(
+          color: Colors.lightGreenAccent,
+          child:  Center(
             child: Text(
-                "HELLO FLUTTER",
-                textDirection: TextDirection.ltr,
+              "HELLO FLUTTER",
+              textDirection: TextDirection.ltr,
               style: TextStyle(color: Colors.white, fontSize: 42.0),
             ),//text
+          ),
         ),
       ),
     )
-
-
   );//runapp
-
 }
