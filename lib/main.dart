@@ -20,6 +20,8 @@ class FavouriteCountry extends StatefulWidget {
 
 class _FavouriteCountryState extends State<FavouriteCountry> {
   String nameCountry = "";
+  var _continents = ['Asia','Europe','Africa','Others'];
+  var _currentItemSelected = 'Asia';
 
   @override
   Widget build(BuildContext context){
@@ -40,6 +42,22 @@ class _FavouriteCountryState extends State<FavouriteCountry> {
 
               },
             ),
+           DropdownButton<String>(
+             items: _continents.map((String dropDownStringItem){
+               return DropdownMenuItem<String>(
+                 value: dropDownStringItem,
+                 child: Text(dropDownStringItem),
+               );
+             }).toList(),
+
+             onChanged: (String newValueSelected){
+
+               _onDropDownItemsSelected(newValueSelected);
+
+             },
+
+             value: _currentItemSelected, //This will print selected value
+           ),
            Padding(
                padding: EdgeInsets.all(30.0),
                child: Text(
@@ -53,4 +71,9 @@ class _FavouriteCountryState extends State<FavouriteCountry> {
     );
   }
 
+  void _onDropDownItemsSelected(String newValueSelected){
+    setState(() {
+      this._currentItemSelected = newValueSelected;
+    });
+  }
 }
